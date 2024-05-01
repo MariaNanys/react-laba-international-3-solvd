@@ -32,3 +32,8 @@ function basicOp(operation, value1, value2) {
 
 //  task 3 https://www.codewars.com/kata/printing-array-elements-with-comma-delimiters
 
+function printArray(array){
+    return array.join();
+  }
+
+// task 4 
