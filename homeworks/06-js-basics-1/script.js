@@ -114,12 +114,12 @@ function getMiddle(s) {
 //  task 7 https://www.codewars.com/kata/partition-on
 
 function partitionOn(pred, items) {
-    let even = items.filter(a=>pred(a));
-    let odd = items.filter(a=>!pred(a));
-    items.length = 0; 
-    items.push(...odd, ...even);
-    return even.length;
-  }
+  let even = items.filter((a) => pred(a));
+  let odd = items.filter((a) => !pred(a));
+  items.length = 0;
+  items.push(...odd, ...even);
+  return even.length;
+}
 
 //  task 8  ------------------------------------
 
@@ -190,6 +190,33 @@ function nthFibo(n) {
 }
 
 //  task 14 https://www.codewars.com/kata/cat-and-mouse-2d-version/
+
+function catMouse(map, moves) {
+  let arr = map.split("\n");
+  let catIndex = -1;
+  let catRow = -1;
+  let mouseIndex = -1;
+  let mouseRow = -1;
+  arr.map((e, i) => {
+    if (e.indexOf("C") != -1) {
+      catIndex = e.indexOf("C");
+      catRow = i;
+    }
+    if (e.indexOf("m") != -1) {
+      mouseIndex = e.indexOf("m");
+      mouseRow = i;
+    }
+  });
+  if (catIndex == -1 || mouseIndex == -1) {
+    return "boring without two animals";
+  }
+  let distCol = Math.abs(mouseIndex - catIndex);
+  let distRow = Math.abs(mouseRow - catRow);
+  if (distRow + distCol > moves) {
+    return "Escaped!";
+  }
+  return "Caught!";
+}
 
 //  task 15 https://www.codewars.com/kata/duplicate-encoder
 
