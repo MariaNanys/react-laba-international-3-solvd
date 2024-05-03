@@ -245,6 +245,29 @@ function duplicateEncode(word) {
 
 //  task 16 https://www.codewars.com/kata/5693239fb761dc8670000001
 
+function findAdditiveNumbers(num) {
+    let arr = [];
+   for(let i=1;i<num.length; i++) {
+     if(num[0]==='0' &&i>1) continue;
+     for(let j=i+1;j<num.length-1; j++) {
+       if(num[j]==='0' &&j-i>0) continue;
+       let num1 = num.substring(0, i);
+       let num2 = num.substring(i, j);
+       num1 = parseInt(num1);
+       num2 = parseInt(num2);
+       let sum = num1 + num2;
+        if(sum.toString() === num[j]) {
+          arr.push(num1.toString(), num2.toString(), num[j]);
+          let k = j;
+          while (k < num.length) {
+            k++;
+         }
+        }
+     }
+   }
+   return arr;
+ }
+
 //  task 17 https://www.codewars.com/kata/576757b1df89ecf5bd00073b
 
 function towerBuilder(nFloors) {
