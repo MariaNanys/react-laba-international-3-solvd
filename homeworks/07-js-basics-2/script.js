@@ -146,6 +146,52 @@ function sortArray(array) {
 
 //  task 1 https://www.codewars.com/kata/515bb423de843ea99400000a
 
+class PaginationHelper {
+  collection = null;
+  itemsPerPage = 0;
+  constructor(collection, itemsPerPage) {
+    this.collection = collection;
+    this.itemsPerPage = itemsPerPage;
+    // The constructor takes in an array of items and a integer indicating how many
+    // items fit within a single page
+  }
+  itemCount() {
+    return this.collection.length;
+    // returns the number of items within the entire collection
+  }
+  pageCount() {
+    return Math.ceil(this.itemCount() / this.itemsPerPage);
+    // returns the number of pages
+  }
+  pageItemCount(pageIndex) {
+    if (pageIndex >= this.pageCount() || pageIndex < 0) {
+      return -1;
+    }
+    let newPageIndex = pageIndex + 1;
+    if (newPageIndex >= this.pageCount()) {
+      return this.itemCount() % this.itemsPerPage == 0
+        ? this.itemsPerPage
+        : this.itemCount() % this.itemsPerPage;
+    }
+    return this.itemsPerPage;
+
+    // returns the number of items on the current page. page_index is zero based.
+    // this method should return -1 for pageIndex values that are out of range
+  }
+  pageIndex(itemIndex) {
+    if (itemIndex >= this.itemCount() || itemIndex < 0) {
+      return -1;
+    }
+    if (itemIndex >= 1) {
+      return Math.floor(itemIndex / this.itemsPerPage);
+    } else {
+      return 0;
+    }
+    // determines what page an item is on. Zero based indexes
+    // this method should return -1 for itemIndex values that are out of range
+  }
+}
+
 //  task 2 https://www.codewars.com/kata/52597aa56021e91c93000cb0
 
 function moveZeros(arr) {
@@ -153,5 +199,17 @@ function moveZeros(arr) {
 }
 
 //  task 3 https://www.codewars.com/kata/585d8c8a28bc7403ea0000c3
+
+function findUniq(arr) {
+  let temp = arr.map((e) => {
+    let tA = [...new Set(e.toLowerCase())];
+    return tA.sort().join("");
+  });
+  let uniqueIndex = temp.findIndex(
+    (element) => temp.indexOf(element) === temp.lastIndexOf(element)
+  );
+
+  return arr[uniqueIndex];
+}
 
 //  task 4 https://www.codewars.com/kata/5296bc77afba8baa690002d7
