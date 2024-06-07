@@ -1,0 +1,49 @@
+.btn-toogle-color {
+    margin: 2.0625rem auto 0;
+    height: 5rem;
+    width: 5rem;
+    background: #171F26;
+    border-radius: 50%;
+    border: 0;
+  
+    img {
+      height: 2.5rem;
+      width: 2.5rem;
+    }
+  }
+  
+  .btns-cv-contact, .btns-portfolio-skills {
+    padding: 0.8125rem 1.8125rem;
+    border-radius: 10px;
+    line-height: 1.125rem;
+    letter-spacing: -0.5px;
+    text-align: center;
+    border: 0;
+    background: #171F26;
+    color: $color-text;
+    width: 18.125rem;
+    font-size: 1.375rem;
+    height: 5rem;
+    &:hover {
+        background-color: #FFE071;
+        color: #3D3D3D;
+    }
+  }
+  
+  .btn-cv {
+    display: flex;
+    align-items: center;
+    background-color: $color-accent;
+    color: $color-dark;
+    justify-content: space-evenly;
+  
+    img {
+      height: 1.25rem;
+      width: 1.125rem;
+    }
+  }
+  
+  .btn-portfolio {
+    background-color: $color-primary;
+  }
+  
